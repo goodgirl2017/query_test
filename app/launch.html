@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="lib/fhir-client.js"></script>
+    <!-- <script src="./lib/fhir-client.js"></script> -->
+    <title>Patient Generated Health Data APP</title>
 </head>
 <body>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <script src='lib/fhir-client.js'></script>
-  <title>Patient Generated Health Data APP</title>
+  <script src='./lib/fhir-client.js'></script>
+  <script src='./lib/fhir-client-cerner-additions.js'></script>
 
   <script type="text/javascript">
       FHIR.oauth2.authorize({
-          client_id: "3590271c-d431-467c-9a4d-278a49363233",
+          'client_id': '3590271c-d431-467c-9a4d-278a49363233',
           // redirect_uri: "https://mydomain.com/app/index.html",
-          scope: "patient/Patient.read patient/Observation.read launch online_access openid profile"
+          'scope': 'patient/Patient.read patient/Observation.read launch online_access openid profile'
       });
 
   </script>
-  <!-- ... -->
 </body>
 </html>
