@@ -1,0 +1,24 @@
+@font-face {
+	font-family: 'Material Icons';
+	font-weight: normal;
+	font-style: normal;
+}
+
+.icon:before {
+	font-family: 'Material Icons';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	display: inline-block;
+	margin-right: 0.6em;
+	-webkit-font-smoothing: antialiased;
+}
+
+.icon-world:before {
+	/* content: "\e02f"; */
+	font-family: 'Material Icons';
+	content: "menu-open";
+}
