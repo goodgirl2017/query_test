@@ -108,6 +108,8 @@ function search(){
     checkInputValidation(startDay, endDay);
 
       // var patientId = sessionstorage.getItem('patientId')
+      window.alert("line111");}
+
       var ret = $.Deferred();
 
       function onError() {
@@ -154,7 +156,6 @@ function search(){
             }
           }
 
-          window.alert("line157");}
 
           FHIR.oauth2.ready(onReady, onError);
 
