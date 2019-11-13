@@ -24,9 +24,26 @@
     <!-- Prevent session bleed caused by single threaded embedded browser and sessionStorage API -->
     <!-- https://github.com/cerner/fhir-client-cerner-additions -->
     <script src='./lib/js/fhir-client-cerner-additions-1.0.0.js'></script>
+    <!-- Required JS files to enable this page to embed within an MPage -->
+    <!--
+      Temporarily disable cerner-smart-embeddable-lib
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js'></script>
+      <script src='./lib/js/cerner-smart-embeddable-lib-1.0.0.min.js'></script>
+    -->
+
+    <!-- Application-level javascript-->
+    <script src='./src/js/example-smart-app.js'></script>
+
+    <!-- FHIR Client JS Library -->
+    <script src='./lib/js/fhir-client-v0.1.12.js'></script>
+    <!-- Prevent session bleed caused by single threaded embedded browser and sessionStorage API -->
+        <!-- https://github.com/cerner/fhir-client-cerner-additions -->
+        <script src='./lib/js/fhir-client-cerner-additions-1.0.0.js'></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        
     <script>
       FHIR.oauth2.authorize({
-        'client_id': '8d1c0073-2404-4e5d-884d-81914bdb9fbf',
+        'client_id': '3590271c-d431-467c-9a4d-278a49363233',
         'scope':  'patient/Patient.read patient/Observation.read launch online_access openid profile'
       });
     </script>
