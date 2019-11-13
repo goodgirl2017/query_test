@@ -16,6 +16,9 @@
                     query: {
                       code: {
                         $or: ['http://loinc.org|8867-4']
+                      },
+                      date: {
+                        $and: ['ge'.join(startDay), 'le'.join(endDay)]
                       }
                     }
                   });
@@ -24,42 +27,12 @@
 
         $.when(pt, obv).done(function(patient, obv) {
           var byCodes = smart.byCodes(obv, 'code');
-          // var gender = patient.gender;
-          //
-          // var fname = '';
-          // var lname = '';
-          //
-          // if (typeof patient.name[0] !== 'undefined') {
-          //   fname = patient.name[0].given.join(' ');
-          //   lname = patient.name[0].family.join(' ');
-          // }
 
           var heart_rate = byCodes('8867-4');
-          // var weight = byCodes('29463-7');
-          // var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
-          // var diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
-          // var hdl = byCodes('2085-9');
-          // var ldl = byCodes('2089-1');
 
           var p = defaultPatient();
-          // p.birthdate = patient.birthDate;
-          // p.gender = gender;
-          // p.fname = fname;
-          // p.lname = lname;
-          // p.height = getQuantityValueAndUnit(height[0]);
-          // p.weight = getQuantityValueAndUnit(weight[0]);
-          p.heart_rate = getQuantityValueAndUnit(heart_rate[0]);
-
-          // if (typeof systolicbp != 'undefined')  {
-          //   p.systolicbp = systolicbp;
-          // }
-          //
-          // if (typeof diastolicbp != 'undefined') {
-          //   p.diastolicbp = diastolicbp;
-          // }
-          //
-          // p.hdl = getQuantityValueAndUnit(hdl[0]);
-          // p.ldl = getQuantityValueAndUnit(ldl[0]);
+          // p.heart_rate = getQuantityValueAndUnit(heart_rate[0]);
+          p.heart_rate = getHeartRates(heart_rate);
 
           ret.resolve(p);
         });
@@ -75,17 +48,7 @@
 
   function defaultPatient(){
     return {
-      // fname: {value: ''},
-      // lname: {value: ''},
-      // gender: {value: ''},
-      // birthdate: {value: ''},
-      // height: {value: ''},
-      // weight: {value: ''},
-      // systolicbp: {value: ''},
-      // diastolicbp: {value: ''},
-      // ldl: {value: ''},
-      // hdl: {value: ''},
-      heart_rate: {value: ''},
+      heart_rate: {value: []},
     };
   }
 
@@ -100,20 +63,26 @@
     }
   }
 
+  function getHeartRates(obv) {
+    var rates = [];
+    obv.forEach(function(observation){
+      rates.push(getQuantityValueAndUnit(observation[0]));
+
+    });
+
+    return rates;
+  }
+
   window.drawVisualization = function(p) {
     $('#holder').show();
     $('#loading').hide();
-    // $('#fname').html(p.fname);
-    // $('#lname').html(p.lname);
-    // $('#gender').html(p.gender);
-    // $('#birthdate').html(p.birthdate);
-    // $('#height').html(p.height);
-    // $('#weight').html(p.weight);
-    // $('#systolicbp').html(p.systolicbp);
-    // $('#diastolicbp').html(p.diastolicbp);
-    // $('#ldl').html(p.ldl);
-    // $('#hdl').html(p.hdl);
-    $('#heart_rate').html(p.heart_rate);
+    // $('#heart_rate').html(p.heart_rate);
+    p.heart_rate.forEach(function(value) {
+      var table = document.getElementById('query_table');
+      var row = table.insertRow(1);
+      var cell = row.insertCell(0);
+      cell.insertHTML = value;
+    }
   };
 
 })(window);
