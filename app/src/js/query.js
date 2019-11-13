@@ -95,7 +95,7 @@
     // }
 
     var table = document.getElementById('query_table');
-    var row = table.insertRow(1);
+    var row = table.insertRow();
     var cell0 = row.insertCell(0);
     cell0.insertHTML = p.time;
 
