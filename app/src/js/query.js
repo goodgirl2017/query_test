@@ -4,33 +4,6 @@
 // document.getElementById("holder").style.display = "none";
 // document.getElementById("loading").style.display = "block";
 
-function defaultObservation(){
-  return {
-    heartRate: {value: []}
-  };
-};
-
-function getHeartRates(obv) {
-  var rates = [];
-  obv.forEach(function(observation){
-    rates.push(getQuantityValueAndUnit(observation[0]));
-
-  });
-
-  return rates;
-};
-
-function getQuantityValueAndUnit(ob) {
-  if (typeof ob != 'undefined' &&
-      typeof ob.valueQuantity != 'undefined' &&
-      typeof ob.valueQuantity.value != 'undefined' &&
-      typeof ob.valueQuantity.unit != 'undefined') {
-        return ob.valueQuantity.value + ' ' + ob.valueQuantity.unit;
-  } else {
-    return undefined;
-  }
-};
-
 
 function toggle(id){
   var tb=document.getElementById(id);
@@ -156,6 +129,33 @@ function search(){
               onError();
             }
           }
+
+          function defaultObservation(){
+            return {
+              heartRate: {value: []}
+            };
+          };
+
+          function getHeartRates(obv) {
+            var rates = [];
+            obv.forEach(function(observation){
+              rates.push(getQuantityValueAndUnit(observation[0]));
+
+            });
+
+            return rates;
+          };
+
+          function getQuantityValueAndUnit(ob) {
+            if (typeof ob != 'undefined' &&
+                typeof ob.valueQuantity != 'undefined' &&
+                typeof ob.valueQuantity.value != 'undefined' &&
+                typeof ob.valueQuantity.unit != 'undefined') {
+                  return ob.valueQuantity.value + ' ' + ob.valueQuantity.unit;
+            } else {
+              return undefined;
+            }
+          };
 
 
           FHIR.oauth2.ready(onReady, onError);
