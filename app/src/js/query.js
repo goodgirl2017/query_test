@@ -84,8 +84,8 @@
   window.drawVisualization = function(p) {
     $('#holder').show();
     $('#loading').hide();
-    $('#time').html(p.time);
-    $('#heart_rate').html(p.heart_rate);
+    // $('#time').html(p.time);
+    // $('#heart_rate').html(p.heart_rate);
 
     // p.heart_rate.forEach(function(value) {
     //   var table = document.getElementById('query_table');
@@ -94,11 +94,24 @@
     //   cell.insertHTML = value;
     // }
 
-    // var table = document.getElementById('query_table');
-    // var row = table.insertRow(1);
-    // var cell = row.insertCell(1);
-    // cell.insertHTML = p.heart_rates;
+    var table = document.getElementById('query_table');
+    var row = table.insertRow(1);
+    var cell0 = row.insertCell(0);
+    cell0.insertHTML = p.time;
+
+    var cell1 = row.insertCell(1);
+    cell1.insertHTML = p.heart_rate;
 
   };
+
+  function addRow(time, hr) {
+    var newRow = document.getElementById('query_table').insertRow();
+    var timeCell = newRow.insertCell(0);
+    var heart_rateCell = newRow.insertCell(1);
+    timeCell.innerHTML = time;
+    heart_rateCell.innerHTML = hr;
+
+
+  }
 
 })(window);
