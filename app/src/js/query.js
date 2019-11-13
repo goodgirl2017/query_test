@@ -32,12 +32,12 @@
           p.time = getDateValue(heart_rate[0]);
 
 
-          var table = document.getElementById('query_table');
-          var row = table.insertRow();
+          var table = document.getElementById("query_table");
+          var row = table.insertRow(0);
           var cell0 = row.insertCell(0);
           var cell1 = row.insertCell(1);
-          cell0.insertHTML = p.time;
-          cell1.insertHTML = p.heart_rate;
+          cell0.insertHTML = p.time.toString();
+          cell1.insertHTML = p.heart_rate.toString();
 
           ret.resolve(p);
         });
