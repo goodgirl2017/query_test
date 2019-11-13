@@ -22,7 +22,7 @@ function search(){
     else if (Date.parse(startDay) > Date.parse(endDay)){
       window.alert("End Date should no earlier than start Date");}
 
-    both the query start and end dates are valid
+    // both the query start and end dates are valid
 	  else {
       // TODO: https://stackoverflow.com/questions/11609376/share-data-between-html-pages
 
@@ -118,7 +118,7 @@ function search(){
         };
 
 })(window);
-	// }
+	}
 }
 
 function toggle(id){
