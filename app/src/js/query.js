@@ -105,7 +105,7 @@ function search(){
 
     var endDay =$('#end').val();
 
-    window.alert("line108");}
+    window.alert("line108");
 
     checkInputValidation(startDay, endDay);
 
