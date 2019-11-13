@@ -19,6 +19,7 @@
     -->
 
     <!-- Application-level javascript-->
+    <script src='./src/js/validateDate.js'></script>
     <script src='./src/js/query.js'></script>
 
     <!-- FHIR Client JS Library -->
@@ -55,7 +56,7 @@
                 </div>
                 <div class="form-group">
                     <!-- <button class="btn btn-lg btn-primary btn-block" onClick="checkInputValidation(); extractData().then(function(p) {drawVisualization(p);});">Submit</button> -->
-                    <button class="btn btn-lg btn-primary btn-block" onClick="search();">Submit</button>
+                    <button class="btn btn-lg btn-primary btn-block" onClick="validateAndSearch();">Submit</button>
                 </div>
             </div>
         </div>
@@ -84,6 +85,27 @@
 			<img class="img-responsive mx-auto d-block" src="img/logo.png" alt="logo"  style="position:absolute;bottom:0;" >
 		</div>
 </div>
+
+<script>
+      function validateAndSearch() {
+        validate();
+
+        extractData().then(
+          //Display Patient Demographics and Observations if extractData was success
+          function(p) {
+            drawVisualization(p);
+          },
+
+          //Display 'Failed to call FHIR Service' if extractData failed
+          function() {
+            $('#loading').hide();
+            $('#errors').html('<p> Failed to call FHIR Service </p>');
+          }
+        );
+
+      }
+
+    </script>
 
 <!-- <script type="text/javascript">
 
