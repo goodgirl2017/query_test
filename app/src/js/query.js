@@ -154,6 +154,8 @@ function search(){
             }
           }
 
+          window.alert("line157");}
+
           FHIR.oauth2.ready(onReady, onError);
 
           return ret.promise();
