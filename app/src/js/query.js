@@ -82,7 +82,13 @@
   window.drawVisualization = function(p) {
     $('#holder').show();
     $('#loading').hide();
-    $('#heart_rate').html(p.heart_rate);
+    // $('#heart_rate').html(p.heart_rate);
+    p.heart_rate.forEach(function(value) {
+      var table = document.getElementById('query_table');
+      var row = table.insertRow(1);
+      var cell = row.insertCell(0);
+      cell.insertHTML = value;
+    }
   };
 
 })(window);
