@@ -143,6 +143,8 @@ function search(){
                 var p = defaultObservation();
                 p.heartRate = getHeartRates(obv);
 
+                drawVisualization(p);
+
                 ret.resolve(p);
 
               });
@@ -153,5 +155,6 @@ function search(){
           }
 
           FHIR.oauth2.ready(onReady, onError);
+
           return ret.promise();
 }
