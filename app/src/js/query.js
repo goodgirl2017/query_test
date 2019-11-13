@@ -31,11 +31,11 @@
           p.heart_rate = getQuantityValue(heart_rate[0]);
           p.time = getDateValue(heart_rate[0]);
 
+
           var table = document.getElementById('query_table');
           var row = table.insertRow();
           var cell0 = row.insertCell(0);
           var cell1 = row.insertCell(1);
-
           cell0.insertHTML = p.time;
           cell1.insertHTML = p.heart_rate;
 
@@ -57,17 +57,6 @@
       time: {value: ''},
     };
   }
-
-  // function getQuantityValueAndUnit(ob) {
-  //   if (typeof ob != 'undefined' &&
-  //       typeof ob.valueQuantity != 'undefined' &&
-  //       typeof ob.valueQuantity.value != 'undefined' &&
-  //       typeof ob.valueQuantity.unit != 'undefined') {
-  //         return ob.valueQuantity.value + ' ' + ob.valueQuantity.unit;
-  //   } else {
-  //     return undefined;
-  //   }
-  // }
 
   function getQuantityValue(ob) {
     if (typeof ob != 'undefined' &&
