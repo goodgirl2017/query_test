@@ -52,16 +52,16 @@
     };
   }
 
-  function getQuantityValueAndUnit(ob) {
-    if (typeof ob != 'undefined' &&
-        typeof ob.valueQuantity != 'undefined' &&
-        typeof ob.valueQuantity.value != 'undefined' &&
-        typeof ob.valueQuantity.unit != 'undefined') {
-          return ob.valueQuantity.value + ' ' + ob.valueQuantity.unit;
-    } else {
-      return undefined;
-    }
-  }
+  // function getQuantityValueAndUnit(ob) {
+  //   if (typeof ob != 'undefined' &&
+  //       typeof ob.valueQuantity != 'undefined' &&
+  //       typeof ob.valueQuantity.value != 'undefined' &&
+  //       typeof ob.valueQuantity.unit != 'undefined') {
+  //         return ob.valueQuantity.value + ' ' + ob.valueQuantity.unit;
+  //   } else {
+  //     return undefined;
+  //   }
+  // }
 
   function getQuantityValue(ob) {
     if (typeof ob != 'undefined' &&
@@ -77,7 +77,6 @@
     var rates = [];
     obv.forEach(function(observation){
       rates.push(getQuantityValue(observation[0]));
-
     });
 
     return rates;
