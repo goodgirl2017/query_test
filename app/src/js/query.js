@@ -52,6 +52,17 @@
     };
   }
 
+  // function getQuantityValueAndUnit(ob) {
+  //   if (typeof ob != 'undefined' &&
+  //       typeof ob.valueQuantity != 'undefined' &&
+  //       typeof ob.valueQuantity.value != 'undefined' &&
+  //       typeof ob.valueQuantity.unit != 'undefined') {
+  //         return ob.valueQuantity.value + ' ' + ob.valueQuantity.unit;
+  //   } else {
+  //     return undefined;
+  //   }
+  // }
+
   function getQuantityValue(ob) {
     if (typeof ob != 'undefined' &&
         typeof ob.valueQuantity != 'undefined' &&
@@ -78,7 +89,7 @@
     p.heart_rate.forEach(function(value) {
       var table = document.getElementById('query_table');
       var row = table.insertRow(1);
-      var cell = row.insertCell(0);
+      var cell = row.insertCell(1);
       cell.insertHTML = value;
     }
   };
