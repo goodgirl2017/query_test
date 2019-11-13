@@ -14,7 +14,9 @@
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
-                      code: 'http://loinc.org|8867-4',
+                      code: {
+                        $or: ['http://loinc.org|8867-4']
+                      },
                       date: {
                         $and: ['ge'.join(startDay), 'le'.join(endDay)]
                       }
