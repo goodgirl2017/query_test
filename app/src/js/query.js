@@ -103,7 +103,16 @@
     // cell1.insertHTML = "2";
 
 // https://dba-presents.com/index.php/jvm/javascript/111-adding-rows-to-html-table-with-jquery
-    var table = $('#query_table');
+    var table = $("#query_table");
+    // var row = $("<tr>");
+    // row.append($("<td>"))
+    //    .append($(p.time))
+    //    .append($("</td><td>"))
+    //    .append($(p.heart_rate))
+    //    .append($("</td>"));
+    // // row.append("<tr><td>" + p.time + "</td><td>" + p.heart_rate + "</td></tr>");
+    // $(("#query_table tbody").append(row);
+
     table.append("<tr><td>" + p.time + "</td><td>" + p.heart_rate + "</td></tr>");
   };
 
