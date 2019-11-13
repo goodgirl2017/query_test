@@ -105,10 +105,11 @@ function search(){
 
     var endDay =$('#end').val();
 
+    window.alert("line108");}
+
     checkInputValidation(startDay, endDay);
 
-      // var patientId = sessionstorage.getItem('patientId')
-      window.alert("line111");}
+      // var patientId = sessionstorage.getItem('patientId');
 
       var ret = $.Deferred();
 
