@@ -5,26 +5,22 @@
 // document.getElementById("loading").style.display = "block";
 
 
-function toggle(id){
-  var tb=document.getElementById(id);
-  if(tb.style.display=='none') tb.style.display='block';
-  // else tb.style.display='none';
-};
-
-function drawVisualization(p) {
-  toggle('holder');
-  // $('#loading').hide();
-  // $('#heartRate').html(p.heartRate);
-  p.heartRate.forEach(function(value) {
-    var table = document.getElementById('query_table');
-    var row = table.insertRow(1);
-    var cell = row.insertCell(0);
-    cell.insertHTML = value;
-  })
-};
-
 // Validates that the input string is a valid date formatted as "mm/dd/yyyy"
 // credits goes to https://stackoverflow.com/questions/6177975/how-to-validate-date-with-format-mm-dd-yyyy-in-javascript
+
+
+function search(){
+
+    var startDay = $('#start').val();
+
+    var endDay =$('#end').val();
+
+    // window.alert("line108");
+
+    checkInputValidation(startDay, endDay);
+
+}
+
 function isValidDate(dateString)
 {
     // First check for the pattern
@@ -71,15 +67,3 @@ function checkInputValidation(startDay, endDay) {
   else if (Date.parse(startDay) > Date.parse(endDay)){
     window.alert("End Date should no earlier than start Date");}
 };
-
-function search(){
-
-    var startDay = $('#start').val();
-
-    var endDay =$('#end').val();
-
-    // window.alert("line108");
-
-    checkInputValidation(startDay, endDay);
-
-}
