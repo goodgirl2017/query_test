@@ -8,7 +8,7 @@ function defaultObservation(){
   return {
     heartRate: {value: []}
   };
-}
+};
 
 function getHeartRates(obv) {
   var rates = [];
@@ -18,7 +18,7 @@ function getHeartRates(obv) {
   });
 
   return rates;
-}
+};
 
 function getQuantityValueAndUnit(ob) {
   if (typeof ob != 'undefined' &&
@@ -29,14 +29,14 @@ function getQuantityValueAndUnit(ob) {
   } else {
     return undefined;
   }
-}
+};
 
 
 function toggle(id){
   var tb=document.getElementById(id);
   if(tb.style.display=='none') tb.style.display='block';
   // else tb.style.display='none';
-}
+};
 
 function drawVisualization(p) {
   toggle('holder');
@@ -48,7 +48,7 @@ function drawVisualization(p) {
     var cell = row.insertCell(0);
     cell.insertHTML = value;
   })
-}
+};
 
 // Validates that the input string is a valid date formatted as "mm/dd/yyyy"
 // credits goes to https://stackoverflow.com/questions/6177975/how-to-validate-date-with-format-mm-dd-yyyy-in-javascript
@@ -97,7 +97,7 @@ function checkInputValidation(startDay, endDay) {
   // the start date must be no later than end date
   else if (Date.parse(startDay) > Date.parse(endDay)){
     window.alert("End Date should no earlier than start Date");}
-}
+};
 
 function search(){
 
@@ -161,4 +161,4 @@ function search(){
           FHIR.oauth2.ready(onReady, onError);
 
           return ret.promise();
-}
+};
