@@ -4,127 +4,50 @@
 // document.getElementById("holder").style.display = "none";
 // document.getElementById("loading").style.display = "block";
 
-function search(){
-
-    var startDay = $('#start').val();
-
-    var endDay =$('#end').val();
-
-    // the start date must be a valid date
-	  if (!isValidDate(startDay)){
-		   window.alert("Start Date is not valid");}
-
-    // the end date must be a valid date
-    else if (!isValidDate(endDay)){
-  	   window.alert("End Date is not valid");}
-
-    // the start date must be no later than end date
-    else if (Date.parse(startDay) > Date.parse(endDay)){
-      window.alert("End Date should no earlier than start Date");}
-
-    // both the query start and end dates are valid
-	  else {
-      // TODO: https://stackoverflow.com/questions/11609376/share-data-between-html-pages
-
-      // var patientId = sessionstorage.getItem('patientId')
-      (function(window){
-
-        window.extractData = function() {
-          var ret = $.Deferred();
-
-          function onError() {
-            console.log('Loading error', arguments);
-            ret.reject();
-          }
-
-          function onReady(smart)  {
-            if (smart.hasOwnProperty('patient')) {
-              var patient = smart.patient;
-              var pt = patient.read();
-              var obv = smart.patient.api.fetchAll({
-                          type: 'Observation',
-                          query: {
-                            // patient: patientId,
-
-                            code: 'http://loinc.org|8867-4',
-
-                            date: {
-                              $and: ['ge'.join(startDay), 'le'.join(endDay)]
-                            }
-
-                          }
-                        });
-
-              $.when(pt, obv).fail(onError);
-
-              $.when(pt, obv).done(function(patient, obv) {
-                var byCodes = smart.byCodes(obv, 'code');
-
-                var heartRate = byCodes('8867-4');
-
-                var p = defaultObservation();
-                p.heartRate = getHeartRates(obv);
-
-                ret.resolve(p);
-              });
-
-            } else {
-              onError();
-            }
-          }
-
-          FHIR.oauth2.ready(onReady, onError);
-          return ret.promise();
-
-        };
-
-        function defaultObservation(){
-          return {
-            heartRate: {value: []}
-          };
-        }
-
-        function getHeartRates(obv) {
-          var rates = [];
-          obv.forEach(function(observation){
-            rates.push(getQuantityValueAndUnit(observation[0]));
-
-          });
-
-          return rates;
-        }
-
-        function getQuantityValueAndUnit(ob) {
-          if (typeof ob != 'undefined' &&
-              typeof ob.valueQuantity != 'undefined' &&
-              typeof ob.valueQuantity.value != 'undefined' &&
-              typeof ob.valueQuantity.unit != 'undefined') {
-                return ob.valueQuantity.value + ' ' + ob.valueQuantity.unit;
-          } else {
-            return undefined;
-          }
-        }
-
-        window.drawVisualization = function(p) {
-          toggle('holder');
-          // $('#loading').hide();
-          // $('#heartRate').html(p.heartRate);
-          p.heartRate.forEach(function(value) {
-            var table = document.getElementById('query_table');
-            var row = table.insertRow(1);
-            var cell = row.insertCell(0);
-            cell.insertHTML = value;
-          })
-        };
-
-})(window);
-	}
+function defaultObservation(){
+  return {
+    heartRate: {value: []}
+  };
 }
+
+function getHeartRates(obv) {
+  var rates = [];
+  obv.forEach(function(observation){
+    rates.push(getQuantityValueAndUnit(observation[0]));
+
+  });
+
+  return rates;
+}
+
+function getQuantityValueAndUnit(ob) {
+  if (typeof ob != 'undefined' &&
+      typeof ob.valueQuantity != 'undefined' &&
+      typeof ob.valueQuantity.value != 'undefined' &&
+      typeof ob.valueQuantity.unit != 'undefined') {
+        return ob.valueQuantity.value + ' ' + ob.valueQuantity.unit;
+  } else {
+    return undefined;
+  }
+}
+
 
 function toggle(id){
   var tb=document.getElementById(id);
   if(tb.style.display=='none') tb.style.display='block';
   // else tb.style.display='none';
+}
+
+function drawVisualization(p) {
+  toggle('holder');
+  // $('#loading').hide();
+  // $('#heartRate').html(p.heartRate);
+  p.heartRate.forEach(function(value) {
+    var table = document.getElementById('query_table');
+    var row = table.insertRow(1);
+    var cell = row.insertCell(0);
+    cell.insertHTML = value;
+  })
 }
 
 // Validates that the input string is a valid date formatted as "mm/dd/yyyy"
@@ -160,3 +83,75 @@ function isValidDate(dateString)
     // Check the range of the day
     return day > 0 && day <= monthDays[month - 1];
 };
+
+function checkInputValidation(startDay, endDay) {
+
+  // the start date must be a valid date
+  if (!isValidDate(startDay)){
+     window.alert("Start Date is not valid");}
+
+  // the end date must be a valid date
+  else if (!isValidDate(endDay)){
+     window.alert("End Date is not valid");}
+
+  // the start date must be no later than end date
+  else if (Date.parse(startDay) > Date.parse(endDay)){
+    window.alert("End Date should no earlier than start Date");}
+}
+
+function search(){
+
+    var startDay = $('#start').val();
+
+    var endDay =$('#end').val();
+
+    checkInputValidation(startDay, endDay);
+
+      // var patientId = sessionstorage.getItem('patientId')
+      var ret = $.Deferred();
+
+      function onError() {
+        console.log('Loading error', arguments);
+        ret.reject();
+      }
+
+          function onReady(smart)  {
+            if (smart.hasOwnProperty('patient')) {
+              var patient = smart.patient;
+              var pt = patient.read();
+              var obv = smart.patient.api.fetchAll({
+                          type: 'Observation',
+                          query: {
+                            // patient: patientId,
+
+                            code: 'http://loinc.org|8867-4',
+
+                            date: {
+                              $and: ['ge'.join(startDay), 'le'.join(endDay)]
+                            }
+
+                          }
+                        });
+
+              $.when(pt, obv).fail(onError);
+
+              $.when(pt, obv).done(function(patient, obv) {
+                var byCodes = smart.byCodes(obv, 'code');
+
+                var heartRate = byCodes('8867-4');
+
+                var p = defaultObservation();
+                p.heartRate = getHeartRates(obv);
+
+                ret.resolve(p);
+
+              });
+
+            } else {
+              onError();
+            }
+          }
+
+          FHIR.oauth2.ready(onReady, onError);
+          return ret.promise();
+}
