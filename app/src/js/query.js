@@ -113,7 +113,7 @@
     // // row.append("<tr><td>" + p.time + "</td><td>" + p.heart_rate + "</td></tr>");
     // $(("#query_table tbody").append(row);
 
-    table.append("<tr><td>" + p.time + "</td><td>" + p.heart_rate + "</td></tr>");
+    table.append("<tr class = \"info\"><td>" + p.time + "</td><td>" + p.heart_rate + "</td></tr>");
   };
 
   // function of adding one single row
