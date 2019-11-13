@@ -63,10 +63,20 @@
     }
   }
 
+  function getQuantityValue(ob) {
+    if (typeof ob != 'undefined' &&
+        typeof ob.valueQuantity != 'undefined' &&
+        typeof ob.valueQuantity.value != 'undefined') {
+          return ob.valueQuantity.value;
+    } else {
+      return undefined;
+    }
+  }
+
   function getHeartRates(obv) {
     var rates = [];
     obv.forEach(function(observation){
-      rates.push(getQuantityValueAndUnit(observation[0]));
+      rates.push(getQuantityValue(observation[0]));
 
     });
 
