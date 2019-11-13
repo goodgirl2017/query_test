@@ -29,6 +29,7 @@
 
           var p = defaultPatient();
           p.heart_rate = getQuantityValue(heart_rate[0]);
+          p.time = getDateValue(heart_rate[0]);
 
           ret.resolve(p);
         });
@@ -45,6 +46,7 @@
   function defaultPatient(){
     return {
       heart_rate: {value: ''},
+      time: {value: ''},
     };
   }
 
@@ -82,7 +84,9 @@
   window.drawVisualization = function(p) {
     $('#holder').show();
     $('#loading').hide();
-    // $('#heart_rate').html(p.heart_rate);
+    $('#time').html(p.time);
+    $('#heart_rate').html(p.heart_rate);
+
     // p.heart_rate.forEach(function(value) {
     //   var table = document.getElementById('query_table');
     //   var row = table.insertRow(1);
@@ -90,10 +94,10 @@
     //   cell.insertHTML = value;
     // }
 
-    var table = document.getElementById('query_table');
-    var row = table.insertRow(1);
-    var cell = row.insertCell(1);
-    cell.insertHTML = p.heart_rates;
+    // var table = document.getElementById('query_table');
+    // var row = table.insertRow(1);
+    // var cell = row.insertCell(1);
+    // cell.insertHTML = p.heart_rates;
 
   };
 
