@@ -36,8 +36,10 @@
           var row = table.insertRow(0);
           var cell0 = row.insertCell(0);
           var cell1 = row.insertCell(1);
-          cell0.insertHTML = p.time.toString();
-          cell1.insertHTML = p.heart_rate.toString();
+          // cell0.insertHTML = p.time.toString();
+          // cell1.insertHTML = p.heart_rate.toString();
+          cell0.insertHTML = "1";
+          cell1.insertHTML = "2";
 
           ret.resolve(p);
         });
