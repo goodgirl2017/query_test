@@ -11,8 +11,10 @@
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
+
         var startDay = $('#start').val();
         var endDay =$('#end').val();
+        
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
