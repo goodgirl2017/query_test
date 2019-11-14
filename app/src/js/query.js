@@ -18,11 +18,11 @@
                     query: {
                       code: {
                         $or: ['http://loinc.org|8867-4']
-                      },
-
-                      date: {
-                        $and: ['ge'.concat(startDay), 'le'.concat(endDay)]
                       }
+
+                      // date: {
+                      //   $and: ['ge'.concat(startDay), 'le'.concat(endDay)]
+                      // }
 
                     }
                   });
