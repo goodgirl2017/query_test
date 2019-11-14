@@ -55,19 +55,19 @@
 
   };
 
-  function defaultPatient(){
-    return {
-      heart_rate: {value: ''},
-      time: {value: ''},
-    };
-  }
-
   // function defaultPatient(){
   //   return {
-  //     heart_rate: {value: []},
-  //     time: {value: []},
+  //     heart_rate: {value: ''},
+  //     time: {value: ''},
   //   };
   // }
+
+  function defaultPatient(){
+    return {
+      heart_rate: {value: []},
+      time: {value: []},
+    };
+  }
 
   function getQuantityValue(ob) {
     if (typeof ob != 'undefined' &&
