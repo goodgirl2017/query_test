@@ -91,10 +91,11 @@
       function validateAndSearch() {
         validate();
 
-        extractData().then(
-          $(document).ready(function() {
-            $('#query_table').DataTable();
+        $(document).ready(function() {
+          $('#query_table').DataTable();
         } );
+
+        extractData().then(
 
           //Display Patient Demographics and Observations if extractData was success
           function(p) {
