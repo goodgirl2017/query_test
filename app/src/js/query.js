@@ -62,8 +62,8 @@
 
   // function defaultPatient(){
   //   return {
-  //     heart_rate: {value: ''},
-  //     time: {value: ''},
+  //     heart_rate: {value: []},
+  //     time: {value: []},
   //   };
   // }
 
@@ -112,9 +112,6 @@
     $('#loading').hide();
 
     addRow(p.time, p.heart_rate);
-    // for (var i = 0; i < p.time.length; i++) {
-    //   addRow(p.time[i], p.heart_rate[i]);
-    // }
   };
 
   // function of adding one single row
