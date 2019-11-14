@@ -83,46 +83,17 @@
   window.drawVisualization = function(p) {
     $('#holder').show();
     $('#loading').hide();
-    // $('#time').html(p.time);
-    // $('#heart_rate').html(p.heart_rate);
 
-    // p.heart_rate.forEach(function(value) {
-    //   var table = document.getElementById('query_table');
-    //   var row = table.insertRow(1);
-    //   var cell = row.insertCell(0);
-    //   cell.insertHTML = value;
-    // }
-
-    // var table = document.getElementById("query_table");
-    // var row = table.insertRow(0);
-    // var cell0 = row.insertCell(0);
-    // var cell1 = row.insertCell(1);
-    // // cell0.insertHTML = p.time.toString();
-    // // cell1.insertHTML = p.heart_rate.toString();
-    // cell0.insertHTML = "1";
-    // cell1.insertHTML = "2";
-
-// https://dba-presents.com/index.php/jvm/javascript/111-adding-rows-to-html-table-with-jquery
-    var table = $("#query_table");
-    // var row = $("<tr>");
-    // row.append($("<td>"))
-    //    .append($(p.time))
-    //    .append($("</td><td>"))
-    //    .append($(p.heart_rate))
-    //    .append($("</td>"));
-    // // row.append("<tr><td>" + p.time + "</td><td>" + p.heart_rate + "</td></tr>");
-    // $(("#query_table tbody").append(row);
-
-    table.append("<tr class = \"info\"><td>" + p.time + "</td><td>" + p.heart_rate + "</td></tr>");
+    // var table = $("#query_table");
+    //
+    // table.append("<tr class = \"info\"><td>" + p.time + "</td><td>" + p.heart_rate + "</td></tr>");
+    addRow(p.time, p.heart_rate);
   };
 
   // function of adding one single row
   function addRow(time, hr) {
-    var newRow = document.getElementById('query_table').insertRow();
-    var timeCell = newRow.insertCell(0);
-    var heart_rateCell = newRow.insertCell(1);
-    timeCell.innerHTML = time;
-    heart_rateCell.innerHTML = hr;
+    var table = $("#query_table");
+    table.append("<tr class = \"info\"><td>" + time + "</td><td>" + hr + "</td></tr>");
   }
 
 })(window);
