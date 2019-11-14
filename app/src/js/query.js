@@ -114,15 +114,13 @@
 
     // addRow(p.time, p.heart_rate);
     for (var i = 0; i < p.time.length; i++) {
-      if (x & 1) {
+      if (i % 2 != 0) {
         addRowOdd(p.time[i], p.heart_rate[i]);
       } else {
         addRowEven(p.time[i], p.heart_rate[i]);
       }
 
     }
-
-
 
   };
 
