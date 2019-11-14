@@ -14,7 +14,7 @@
 
         var startDay = $('#start').val();
         var endDay =$('#end').val();
-        
+
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
@@ -38,10 +38,10 @@
           var heart_rate = byCodes('8867-4');
 
           var p = defaultPatient();
-          p.heart_rate = getQuantityValue(heart_rate[0]);
-          p.time = getDateValue(heart_rate[0]);
-          // p.heart_rate = getHeartRates(heart_rate);
-          // p.time = getTimes(heart_rate);
+          // p.heart_rate = getQuantityValue(heart_rate[0]);
+          // p.time = getDateValue(heart_rate[0]);
+          p.heart_rate = getHeartRates(heart_rate);
+          p.time = getTimes(heart_rate);
 
           ret.resolve(p);
         });
@@ -113,7 +113,10 @@
     $('#holder').show();
     $('#loading').hide();
 
-    addRow(p.time, p.heart_rate);
+    // addRow(p.time, p.heart_rate);
+    for (var i = 0; i < p.time.length; i++) {
+      addRow(p.time[i], p.heart_rate[i]);
+    }
   };
 
   // function of adding one single row
