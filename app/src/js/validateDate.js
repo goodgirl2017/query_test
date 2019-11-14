@@ -22,7 +22,7 @@ function validate(){
 function isValidDate(dateString)
 {
     // First check for the pattern
-    if(!/^\d{4}\-\d{1,2}\-\d{1,2}$/.test(dateString))
+    if(!/^\d{4}-\d{1,2}-\d{1,2}$/.test(dateString))
         return false;
 
     // Parse the date parts to integers
