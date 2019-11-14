@@ -129,7 +129,6 @@
 
         else {
         addRowEven(p.time[i], p.heart_rate[i]);}
-
     }
 
   };
