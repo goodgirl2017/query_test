@@ -16,7 +16,12 @@
                     query: {
                       code: {
                         $or: ['http://loinc.org|8867-4']
+                      },
+
+                      date: {
+                        $and: ['ge'.join(startDay), 'le'.join(endDay)]
                       }
+
                     }
                   });
 
@@ -28,8 +33,10 @@
           var heart_rate = byCodes('8867-4');
 
           var p = defaultPatient();
-          p.heart_rate = getQuantityValue(heart_rate[0]);
-          p.time = getDateValue(heart_rate[0]);
+          // p.heart_rate = getQuantityValue(heart_rate[0]);
+          // p.time = getDateValue(heart_rate[0]);
+          p.heart_rate = getHeartRates(heart_rate);
+          p.time = getTimes(heart_rate);
 
           ret.resolve(p);
         });
@@ -43,10 +50,17 @@
 
   };
 
+  // function defaultPatient(){
+  //   return {
+  //     heart_rate: {value: ''},
+  //     time: {value: ''},
+  //   };
+  // }
+
   function defaultPatient(){
     return {
-      heart_rate: {value: ''},
-      time: {value: ''},
+      heart_rate: {value: []},
+      time: {value: []},
     };
   }
 
@@ -60,6 +74,16 @@
     }
   }
 
+  function getHeartRates(obv) {
+    var rates = [];
+    obv.forEach(function(observation){
+      rates.push(getQuantityValue(observation[0]));
+
+    });
+
+    return rates;
+  };
+
   function getDateValue(ob) {
     if (typeof ob != 'undefined' &&
         typeof ob.effectiveDateTime != 'undefined') {
@@ -68,6 +92,16 @@
       return undefined;
     }
   }
+
+  function getTimes(obv) {
+    var times = [];
+    obv.forEach(function(observation){
+      times.push(getDateValue(observation[0]));
+
+    });
+
+    return times;
+  };
 
 
   window.drawVisualization = function(p) {
