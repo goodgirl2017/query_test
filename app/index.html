@@ -11,12 +11,6 @@
 	<!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" language="javascript"  src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <!-- Required JS files to enable this page to embed within an MPage -->
-    <!--
-      Temporarily disable cerner-smart-embeddable-lib
-      <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js'></script>
-      <script src='./lib/js/cerner-smart-embeddable-lib-1.0.0.min.js'></script>
-    -->
 
     <!-- Application-level javascript-->
     <script src='./src/js/validateDate.js'></script>
@@ -24,13 +18,10 @@
 
     <!-- FHIR Client JS Library -->
     <script src='./lib/js/fhir-client-v0.1.12.js'></script>
-    <!-- Prevent session bleed caused by single threaded embedded browser and sessionStorage API -->
-        <!-- https://github.com/cerner/fhir-client-cerner-additions -->
     <script src='./lib/js/fhir-client-cerner-additions-1.0.0.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
     <script src='./lib/fhir-client.js'></script>
-    <!-- <script src="js/query.js"></script> -->
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -55,7 +46,6 @@
                     <input type="text" class="form-control" id="end" placeholder="mm/dd/yyyy">
                 </div>
                 <div class="form-group">
-                    <!-- <button class="btn btn-lg btn-primary btn-block" onClick="checkInputValidation(); extractData().then(function(p) {drawVisualization(p);});">Submit</button> -->
                     <button class="btn btn-lg btn-primary btn-block" id = "submit" onClick="validateAndSearch();">Submit</button>
                 </div>
             </div>
@@ -65,7 +55,6 @@
 
 
     <div id='holder' style="display:none">
-      <!-- toggle(holder) -->
       <h2>Patient-Generated-Health-Data APP</h2>
 
       <h2>Heart Rate Search Results</h2>
