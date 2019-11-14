@@ -12,11 +12,11 @@
 
     function onReady(smart)  {
       if (smart.hasOwnProperty('patient')) {
-        var demoPatient = {
-          fhirServiceUrl: "https://r2.smarthealthit.org",
-          patientId: "smart-880378"
-        };
-        smart = FHIR.client(demoPatient);
+        // var demoPatient = {
+        //   fhirServiceUrl: "https://r2.smarthealthit.org",
+        //   patientId: "smart-880378"
+        // };
+        // smart = FHIR.client(demoPatient);
 
         var patient = smart.patient;
         var pt = patient.read();
