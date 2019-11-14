@@ -29,7 +29,6 @@
                     }
                   });
 
-        // window.alert("here");}
         $.when(pt, obv).fail(onError);
 
         $.when(pt, obv).done(function(patient, obv) {
@@ -55,13 +54,6 @@
 
   };
 
-  // function defaultPatient(){
-  //   return {
-  //     heart_rate: {value: ''},
-  //     time: {value: ''},
-  //   };
-  // }
-
   function defaultPatient(){
     return {
       heart_rate: {value: []},
@@ -82,7 +74,8 @@
   function getHeartRates(obv) {
     var rates = [];
     obv.forEach(function(observation){
-      rates.push(getQuantityValue(observation[0]));
+      // rates.push(getQuantityValue(observation[0]));
+      rates.push(observation.valueQuantity.value);
 
     });
 
@@ -101,7 +94,8 @@
   function getTimes(obv) {
     var times = [];
     obv.forEach(function(observation){
-      times.push(getDateValue(observation[0]));
+      // times.push(getDateValue(observation[0]));
+      times.push(observation.effectiveDateTime);
 
     });
 
