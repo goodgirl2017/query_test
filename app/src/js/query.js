@@ -31,16 +31,6 @@
           p.heart_rate = getQuantityValue(heart_rate[0]);
           p.time = getDateValue(heart_rate[0]);
 
-          // https://www.w3schools.com/jsref/met_table_insertrow.asp
-          // var table = document.getElementById("query_table");
-          // var row = table.insertRow(0);
-          // var cell0 = row.insertCell(0);
-          // var cell1 = row.insertCell(1);
-          // // cell0.insertHTML = p.time.toString();
-          // // cell1.insertHTML = p.heart_rate.toString();
-          // cell0.insertHTML = "1";
-          // cell1.insertHTML = "2";
-
           ret.resolve(p);
         });
       } else {
@@ -84,9 +74,6 @@
     $('#holder').show();
     $('#loading').hide();
 
-    // var table = $("#query_table");
-    //
-    // table.append("<tr class = \"info\"><td>" + p.time + "</td><td>" + p.heart_rate + "</td></tr>");
     addRow(p.time, p.heart_rate);
   };
 
