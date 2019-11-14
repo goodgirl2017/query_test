@@ -116,6 +116,7 @@
   window.drawVisualization = function(p) {
     $('#holder').show();
     $('#loading').hide();
+    $('#logo').hide();
 
     // $(document).ready(function () {
     //   $('#query_table').DataTable();
