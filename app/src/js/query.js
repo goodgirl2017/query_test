@@ -7,8 +7,17 @@
       ret.reject();
     }
 
+
+
+
     function onReady(smart)  {
       if (smart.hasOwnProperty('patient')) {
+        var demoPatient = {
+          serviceUrl: "https://api.hspconsortium.org/hspcdemo/open",
+          patientId: "smart-880378"
+        };
+        smart = FHIR.client(demoPatient);
+
         var patient = smart.patient;
         var pt = patient.read();
 
@@ -18,7 +27,7 @@
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
-                      patient:'smart-880378',
+                      // patient:'smart-880378',
                       code: {
                         $or: ['http://loinc.org|8867-4']
                       },
