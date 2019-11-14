@@ -118,10 +118,6 @@
     $('#loading').hide();
     $('#logo').hide();
 
-    // $(document).ready(function () {
-    //   $('#query_table').DataTable();
-    //   // $('.dataTables_length').addClass('bs-select');
-    // });
 
     // addRow(p.time, p.heart_rate);
     for (var i = 0; i < p.time.length; i++) {
@@ -131,6 +127,11 @@
         else {
         addRowEven(p.time[i], p.heart_rate[i]);}
     }
+
+    $(document).ready(function () {
+      $('#query_table').DataTable();
+      // $('.dataTables_length').addClass('bs-select');
+    });
 
   };
 
