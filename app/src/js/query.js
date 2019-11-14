@@ -111,6 +111,14 @@
     for (var i = 0; i < p.time.length; i++) {
       addRow(p.time[i], p.heart_rate[i]);
     }
+
+    $(document).ready(function () {
+      $('#query_table').DataTable({
+        "pagingType": "simple"
+      });
+      $('.dataTables_length').addClass('bs-select');
+    });
+
   };
 
   // function of adding one single row
