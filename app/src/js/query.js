@@ -13,7 +13,7 @@
     function onReady(smart)  {
       if (smart.hasOwnProperty('patient')) {
         var demoPatient = {
-          serviceUrl: "https://api.hspconsortium.org/hspcdemo/open",
+          fhirServiceUrl: "https://r2.smarthealthit.org",
           patientId: "smart-880378"
         };
         smart = FHIR.client(demoPatient);
