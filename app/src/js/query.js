@@ -18,7 +18,7 @@
         var obv = smart.patient.api.fetchAll({
                     type: 'Observation',
                     query: {
-                      patient:'smart-880378',
+                      id:'smart-880378',
                       code: {
                         $or: ['http://loinc.org|8867-4']
                       },
