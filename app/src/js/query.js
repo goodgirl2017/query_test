@@ -36,10 +36,10 @@
           var heart_rate = byCodes('8867-4');
 
           var p = defaultPatient();
-          // p.heart_rate = getQuantityValue(heart_rate[0]);
-          // p.time = getDateValue(heart_rate[0]);
-          p.heart_rate = getHeartRates(heart_rate);
-          p.time = getTimes(heart_rate);
+          p.heart_rate = getQuantityValue(heart_rate[0]);
+          p.time = getDateValue(heart_rate[0]);
+          // p.heart_rate = getHeartRates(heart_rate);
+          // p.time = getTimes(heart_rate);
 
           ret.resolve(p);
         });
@@ -53,19 +53,19 @@
 
   };
 
-  // function defaultPatient(){
-  //   return {
-  //     heart_rate: {value: ''},
-  //     time: {value: ''},
-  //   };
-  // }
-
   function defaultPatient(){
     return {
       heart_rate: {value: ''},
       time: {value: ''},
     };
   }
+
+  // function defaultPatient(){
+  //   return {
+  //     heart_rate: {value: ''},
+  //     time: {value: ''},
+  //   };
+  // }
 
   function getQuantityValue(ob) {
     if (typeof ob != 'undefined' &&
@@ -111,10 +111,10 @@
     $('#holder').show();
     $('#loading').hide();
 
-    // addRow(p.time, p.heart_rate);
-    for (var i = 0; i < p.time.length; i++) {
-      addRow(p.time[i], p.heart_rate[i]);
-    }
+    addRow(p.time, p.heart_rate);
+    // for (var i = 0; i < p.time.length; i++) {
+    //   addRow(p.time[i], p.heart_rate[i]);
+    // }
   };
 
   // function of adding one single row
