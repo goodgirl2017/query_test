@@ -132,7 +132,7 @@
 
   function addRowEven(time, hr) {
     var table = $("#query_table");
-    table.append("<tr class = \"success\"><td>" + time + "</td><td>" + hr + "</td></tr>");
+    table.append("<tr class = \"danger\"><td>" + time + "</td><td>" + hr + "</td></tr>");
   }
 
 })(window);
