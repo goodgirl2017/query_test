@@ -50,10 +50,11 @@ var rates = [];
           var heart_rate = byCodes('8867-4');
 
           var p = defaultPatient();
-          // p.heart_rate = getQuantityValue(heart_rate[0]);
-          // p.time = getDateValue(heart_rate[0]);
-          p.heart_rate = getHeartRates(heart_rate);
-          p.time = getTimes(heart_rate);
+
+          // p.heart_rate = getHeartRates(heart_rate);
+          // p.time = getTimes(heart_rate);
+          p.heart_rate = rates;
+          p.time = times;
 
           ret.resolve(p);
         });
