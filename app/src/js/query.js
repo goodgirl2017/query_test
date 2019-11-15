@@ -1,3 +1,6 @@
+var times = [];
+var rates = [];
+
 (function(window){
   window.extractData = function() {
     var ret = $.Deferred();
@@ -82,7 +85,6 @@
   }
 
   function getHeartRates(obv) {
-    var rates = [];
     obv.forEach(function(observation){
       // rates.push(getQuantityValue(observation[0]));
       rates.push(observation.valueQuantity.value);
@@ -102,7 +104,7 @@
   };
 
   function getTimes(obv) {
-    var times = [];
+    // var times = [];
     obv.forEach(function(observation){
       // times.push(getDateValue(observation[0]));
       times.push(observation.effectiveDateTime);
@@ -115,6 +117,7 @@
 
   window.drawVisualization = function(p) {
     $('#holder').show();
+    $('#chart_button_space').show();
     $('#loading').hide();
     $('#logo').hide();
 
@@ -147,3 +150,47 @@
   }
 
 })(window);
+
+
+function DrawLineChart() {
+  $('#holder').hide();
+  $('#logo').show();
+  $('#chart_button_space').hide();
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: times,
+        datasets: [{
+            label: 'Line Plot',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: rates
+        }]
+    },
+    options: {
+    }
+  });
+}
+
+function DrawBarChart() {
+  var ctx = document.getElementById('myBarChart').getContext('2d');
+  var chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: times,
+        datasets: [{
+            label: 'Bar Plot',
+            data: rates,
+            backgroundColor: ['rgba(255, 99, 132, 0.7)',
+            'rgba(54, 162, 235, 0.7)',
+            'rgba(255, 206, 86, 0.7)',
+              'rgba(75, 192, 192, 0.7)',
+              'rgba(153, 102, 255, 0.7)',
+              'rgba(255, 159, 64, 0.7)',
+              'rgba(230, 195, 195, 0.7)']
+        }]
+    },
+    options: {}
+  });
+}
