@@ -134,10 +134,10 @@ var rates = [];
         addRowEven(p.time[i], p.heart_rate[i]);}
     }
 
-    $(document).ready(function () {
-      $('#query_table').DataTable();
-      // $('.dataTables_length').addClass('bs-select');
-    });
+    // $(document).ready(function () {
+    //   $('#query_table').DataTable();
+    //   // $('.dataTables_length').addClass('bs-select');
+    // });
 
   };
 
