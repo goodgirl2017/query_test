@@ -155,8 +155,10 @@ var rates = [];
 
 function DrawLineChart() {
   $('#holder').hide();
+  $('#charts').show();
   $('#logo').show();
   $('#chart_button_space').hide();
+
   var ctx = document.getElementById('myChart').getContext('2d');
   var chart = new Chart(ctx, {
     type: 'line',
