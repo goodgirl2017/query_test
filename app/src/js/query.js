@@ -51,10 +51,10 @@ var rates = [];
 
           var p = defaultPatient();
 
-          // p.heart_rate = getHeartRates(heart_rate);
-          // p.time = getTimes(heart_rate);
-          p.heart_rate = rates;
-          p.time = times;
+          p.heart_rate = getHeartRates(heart_rate);
+          p.time = getTimes(heart_rate);
+          // p.heart_rate = rates;
+          // p.time = times;
 
           ret.resolve(p);
         });
@@ -133,11 +133,6 @@ var rates = [];
         else {
         addRowEven(p.time[i], p.heart_rate[i]);}
     }
-
-    // $(document).ready(function () {
-    //   $('#query_table').DataTable();
-    //   // $('.dataTables_length').addClass('bs-select');
-    // });
 
   };
 
