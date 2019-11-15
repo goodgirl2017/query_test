@@ -89,6 +89,7 @@ var rates = [];
     obv.forEach(function(observation){
       // rates.push(getQuantityValue(observation[0]));
       rates.push(observation.valueQuantity.value);
+			console.log(rates);
 
     });
 
@@ -109,6 +110,7 @@ var rates = [];
     obv.forEach(function(observation){
       // times.push(getDateValue(observation[0]));
       times.push(observation.effectiveDateTime);
+      console.log(times);
 
     });
 
@@ -159,6 +161,10 @@ function DrawLineChart() {
   $('#logo').show();
   $('#chart_button_space').hide();
 
+  console.log("DrawLineChart");
+  console.log(times);
+  console.log(rates);
+
   var ctx = document.getElementById('myChart').getContext('2d');
   var chart = new Chart(ctx, {
     type: 'line',
@@ -177,6 +183,9 @@ function DrawLineChart() {
 }
 
 function DrawBarChart() {
+  console.log("DrawBarChart");
+  console.log(times);
+  console.log(rates);
   var ctx = document.getElementById('myBarChart').getContext('2d');
   var chart = new Chart(ctx, {
     type: 'bar',
