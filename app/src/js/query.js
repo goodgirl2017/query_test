@@ -89,7 +89,7 @@ var rates = [];
     obv.forEach(function(observation){
       // rates.push(getQuantityValue(observation[0]));
       rates.push(observation.valueQuantity.value);
-			console.log(rates);
+			// console.log(rates);
 
     });
 
@@ -110,7 +110,7 @@ var rates = [];
     obv.forEach(function(observation){
       // times.push(getDateValue(observation[0]));
       times.push(observation.effectiveDateTime);
-      console.log(times);
+      // console.log(times);
 
     });
 
