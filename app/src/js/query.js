@@ -109,7 +109,8 @@ var rates = [];
     // var times = [];
     obv.forEach(function(observation){
       // times.push(getDateValue(observation[0]));
-      times.push(observation.effectiveDateTime);
+      // times.push(observation.effectiveDateTime);
+      times.push(parseISOString(observation.effectiveDateTime));
       // console.log(times);
 
     });
@@ -200,4 +201,10 @@ function DrawBarChart() {
     },
     options: {}
   });
+}
+
+// source code: https://stackoverflow.com/questions/27012854/change-iso-date-string-to-date-object-javascript
+function parseISOString(s) {
+  var b = s.split(/\D+/);
+  return new Date(Date.UTC(b[0], --b[1], b[2], b[3], b[4], b[5], b[6]));
 }
