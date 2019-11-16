@@ -109,8 +109,8 @@ var rates = [];
     // var times = [];
     obv.forEach(function(observation){
       // times.push(getDateValue(observation[0]));
-      // times.push(observation.effectiveDateTime);
-      times.push(parseISOString(observation.effectiveDateTime));
+      times.push(observation.effectiveDateTime);
+      // times.push(parseISOString(observation.effectiveDateTime));
       // console.log(times);
 
     });
@@ -183,7 +183,7 @@ function DrawBarChart() {
   $('#charts').show();
   $('#logo').show();
   $('#bar_chart_button_space').hide();
-  
+
   console.log("DrawBarChart");
   console.log(times);
   console.log(rates);
