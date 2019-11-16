@@ -179,6 +179,11 @@ function DrawLineChart() {
 }
 
 function DrawBarChart() {
+  $('#holder').hide();
+  $('#charts').show();
+  $('#logo').show();
+  $('#bar_chart_button_space').hide();
+  
   console.log("DrawBarChart");
   console.log(times);
   console.log(rates);
