@@ -208,3 +208,11 @@ function parseISOString(s) {
   var b = s.split(/\D+/);
   return new Date(Date.UTC(b[0], --b[1], b[2], b[3], b[4], b[5], b[6]));
 }
+
+function backToTable() {
+  $('#table_space').show();
+  $('#holder').hide();
+  $('#charts').hide();
+  $('#logo').show();
+  $('#chart_button_space').show();
+}

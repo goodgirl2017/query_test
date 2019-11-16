@@ -56,6 +56,12 @@
     </div>
 </div>
 
+  <button type="button" class="btn btn-primary">Main Menu</button>
+  <button type="button" class="btn btn-secondary">New Query</button>
+
+    <div class="form-group" id='table_space'  style="display:none">
+        <button class="btn btn-lg btn-primary btn-sm" id = "table_button" onClick="backToTable();">Back to Query Table</button>
+    </div>
 
     <div id='holder' style="display:none">
 
@@ -64,6 +70,7 @@
       <div class="form-group" id='chart_button_space'  style="display:none">
           <button class="btn btn-lg btn-primary btn-sm" id = "chart_button" onClick="DrawLineChart(); DrawBarChart();">Visualize in Charts</button>
       </div>
+
 
       <table id='query_table' cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped table-sm" style="width:100%">
       <thead class="thead-light">
