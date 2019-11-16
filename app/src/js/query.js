@@ -121,7 +121,7 @@ var rates = [];
 
   window.drawVisualization = function(p) {
     $('#holder').show();
-    $('#chart_button_space').show();
+    $('#bar_chart_button_space').show();
     $('#loading').hide();
     $('#logo').hide();
 
@@ -155,7 +155,7 @@ function DrawLineChart() {
   $('#holder').hide();
   $('#charts').show();
   $('#logo').show();
-  $('#chart_button_space').hide();
+  $('#bar_chart_button_space').hide();
 
   console.log("DrawLineChart");
   console.log(times);
@@ -214,5 +214,5 @@ function backToTable() {
   $('#holder').hide();
   $('#charts').hide();
   $('#logo').show();
-  $('#chart_button_space').show();
+  $('#bar_chart_button_space').show();
 }
