@@ -154,8 +154,9 @@ var rates = [];
 function DrawLineChart() {
   $('#holder').hide();
   $('#charts').show();
-  $('#logo').show();
+  $('#logo').hide();
   $('#bar_chart_button_space').hide();
+  $('#table_button_space').show();
 
   console.log("DrawLineChart");
   console.log(times);
@@ -181,8 +182,9 @@ function DrawLineChart() {
 function DrawBarChart() {
   $('#holder').hide();
   $('#charts').show();
-  $('#logo').show();
+  $('#logo').hide();
   $('#bar_chart_button_space').hide();
+  $('#table_button_space').show();
 
   console.log("DrawBarChart");
   console.log(times);
@@ -215,9 +217,8 @@ function parseISOString(s) {
 }
 
 function backToTable() {
-  $('#table_space').show();
-  $('#holder').hide();
+  $('#holder').show();
   $('#charts').hide();
-  $('#logo').show();
+  $('#logo').hide();
   $('#bar_chart_button_space').show();
 }
